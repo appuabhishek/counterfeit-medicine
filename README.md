@@ -22,7 +22,7 @@
 
 ## ⏯️ Explanation + Demo Video(click image)
 
-<a href="https://github.com/appuabhishek/counterfeit-medicine"><img src="images/explanation.jpeg" height="500px" width="700px" align ="center"/></a>
+<a href="https://github.com/appuabhishek/counterfeit-medicine"><img src="images/explanation.jpeg"/></a>
 
 
 <!-- ABOUT THE PROJECT -->
@@ -99,7 +99,7 @@ Transaction Contract: The Transaction Contract is deployed automatically by the 
   
  ## :octocat: Project GitHub Links:
 - <a href="https://github.com/appuabhishek/counterfeit-medicine">Smart Contracts for Blockchain + Frontend </a>
-- <a href="https://github.com/appuabhishek/counterfeit-medicine">IoT part</a>
+- <a href="https://github.com/appuabhishek/tempreature-api.git">IoT part</a>
 
 ## 📈 RESULTS
 <img src="images/ganache.png"/>
