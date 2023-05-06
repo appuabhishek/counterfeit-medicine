@@ -1,68 +1,130 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<a name="readme-top"></a>
+<br />
+<div align="center">
+  <a href="https://gat.ac.in/">
+    <img src="images/global-tech.jpg" alt="Logo" width="280" height="230">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">Counterfeit Medicine Authentication System</h3>
 
-### `npm start`
+  <p align="center">
+  The counterfeit medicine authentication system using blockchain and IoT is a technology-based solution designed to verify the authenticity of medications and prevent the distribution of counterfeit drugs. This system leverages the benefits of blockchain and IoT technologies to create a more secure and transparent supply chain for pharmaceutical products.
+    <br />
+    <a href="https://github.com/appuabhishek/counterfeit-medicine"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    
+    
+   </p>
+</div>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ⏯️ Explanation + Demo Video(click image)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<a href="https://github.com/appuabhishek/counterfeit-medicine"><img src="images/explanation.jpeg" height="500px" width="700px" align ="center"/></a>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- ABOUT THE PROJECT -->
+## ⚛️ ABOUT THE PROJECT
+The pharmaceutical supply chain network is the mechanism by which manufactured prescription medications are distributed to patients. However, this supply chain is very complex and consists of multiple stages, which could span over months or longer, across multiple regions around the world. A primary supply chain consists of many entities like suppliers, manufacturers, transporters, wholesalers, distributors, retailers, etc. Thus, keeping track of each medical drug throughout the chain and tracing it back to its source becomes a tedious job. Drug counterfeiting is a global concern. The Health Research Funding organization reported that nearly 10-30% of the drugs are fake in developing countries. Counterfeit products are a matter of great concern as they can produce different side effects to human health. According to the World Health Organization, about 30% of all medication sold in Africa, Asia, and Latin America is counterfeit. The key problem is not counterfeiting, but rather the fact that, as opposed to real medications, counterfeit drugs have different side effects on human health.
 
-### `npm run build`
+Due to lack of transparency in the current system, it is extremely difficult for customers or buyers to know the value of the products. It is also very difficult to investigate the tampering within the supply chain when there is suspicion of illegal or unethical practices. Hence such supply chains are highly inefficient as vendors, suppliers, etc. try to establish a link among the entities and identify who needs what, when and how. Customers and buyers are currently unable to determine the true worth of goods due to a major lack of clarity in the current system. When there is evidence of improper or immoral activities, this tampering within the chain is exceedingly difficult to investigate. They can also be unreliable as retailers and manufacturers struggle to figure out who wants what, when, why, and how. Blockchain is a revolutionizing solution.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Blockchain provides a distributed hyperledger with no centralized authority over the system. Each transaction into the blockchain is immutable, which means there is no way sensitive data like Drug/Customer information can be tampered with. Blockchain provides complete transparency, which also brings trust between the various main entities of the Supply Chain, such as, Manufacturers, intermediaries like Distributors and Suppliers, and the end-users like Customers/Retailers/Hospitals. Each product within the chain can be transferred between the different authenticated entities of the chain using an event request-response mechanism. All transactions between the different entities are recorded into the blockchain using smart contracts.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<!-- SYSTEM DESIGN -->
+## 💻 SYSTEM DESIGN
+<img src="images/Blockchain Supply Chain.jpeg"/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚡ Smart Contract Design
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Supply Chain Contract: This contract is deployed by the Owner of the chain. It consists of many entities associated with the supply chain, i.e., Owner, Supplier, Transporter, Manufacturer, Wholesaler, Distributor, Customer. It also consists of various Solidity events used to communicate with the front end in real-time. Each function in the contract can only be accessed by its respective role assigned to it. This is done with the help of "modifiers" in Solidity. Thus, no entity without a particular role can access a specific function. This helps to increase the security and accessibility of data stored or queried from the blockchain.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Raw Material Contract: A respective Supplier deploys the Raw Material Contract. Once a raw material is created physically, it is then added to the chain by the supplier that created the raw material. While creating a raw material to be added to the chain, data such as EA (Ethereum Address) of the Supplier, DateTime, EA of Transporter, Transaction Contract Address, etc. are requested from the supplier. It also contains events that can compute the whereabouts of the package in real-time. The EA of Receiver (Manufacturer) is later updated based on the event request-response mechanism. It also stores the current status of the medicine, i.e., which entity currently has the raw material.
 
-## Learn More
+Medicine Contract: The respective manufacturer deploys the Medicine Contract. Once a medicine is created physically, it is then added to the chain by the manufacturer that created the medicine. While creating medicine to be added to the chain, data such as EA (Ethereum Address) of Raw Material used to create medicine, DateTime, EA of Transporter, Transaction Contract Address, etc., is requested from the manufacturer. It also contains events that can compute the whereabouts of the package in real-time. The EA of Wholesaler, EA of Distributor, and EA of Customer are updated later based on the event request-response mechanism. It also stores the current status of the medicine, i.e., which entity currently has the package.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Transaction Contract: The Transaction Contract is deployed automatically by the Raw Material and Medicine smart contracts whenever created. The contract takes data such as DateTime, sender EA, receiver EA, location, transaction hash, and the hash of the previous transaction. The transaction hash is 32 bytes. The previous transaction hash is stored for entities to verify the source of products in the chain—an example of transaction data in the smart Transaction contract.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="images/request-response.jpeg"/>
+   <br />
 
-### Code Splitting
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<!-- PROCESS FLOW -->
+## 📝 PROCESS FLOW
+<img src="images/process.jpeg"/>
 
-### Analyzing the Bundle Size
+## 🐱‍💻 PREREQUISITES
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+1.ETHEREUM ACCOUNT
 
-### Making a Progressive Web App
+2.GANACHE SOFTWARE
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+3.NODE MODULES
 
-### Advanced Configuration
+4.YARN PACKAGE MANAGER
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+5.REACT DEVELOPMENT ENVIRNOMENT (VISUAL STUDIO CODE)
 
-### Deployment
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+<!-- GETTING STARTED -->
+## 👀 Getting Started
 
-### `npm run build` fails to minify
+### ⛏️  To deploy the Smart Contract
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+1. Install Ganache and create a workspace.
+2. Install Truffle npm package globally by running ```npm install -g truffle```.
+3. In the `truffle-config.js` file update the `from:` address to an address from your Ganache workspace.
+4. Run ```truffle migrate --reset``` from the command line to deploy the smart contract to the blockchain.
+5. Download Metamask Chrome extension for the browser to help interaction between the application and the blockchain.
+
+
+### 🪜 STEPS TO RUN REACT DEVELOPMENT SERVER
+  
+  ```sh
+   npm install
+   npm start
+   ```
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+  
+ ## :octocat: Project GitHub Links:
+- <a href="https://github.com/appuabhishek/counterfeit-medicine">Smart Contracts for Blockchain + Frontend </a>
+- <a href="https://github.com/appuabhishek/counterfeit-medicine">IoT part</a>
+
+## 📈 RESULTS
+<img src="images/ganache.png"/>
+   <br />
+    <img src="images/home.png"/>
+   <br />
+<img src="images/ownerAdd.png"/>
+   <br />
+<img src="images/ownerView.png"/>
+   <br />
+   <img src="images/popup.png"/>
+   <br />
+     <img src="images/transporter.png"/>
+   <br />
+      <img src="images/manufactDetail.png"/>
+   <br />
+  
+## 🔥 Our Published Paper Link:
+<a href="https://github.com/appuabhishek/counterfeit-medicine" target="_blank">COMING SOON</a>
+
+
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
+
+[MIT License Link](https://github.com/appuabhishek/counterfeit-medicine/blob/master/LICENSE)
+
+
