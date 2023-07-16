@@ -118,7 +118,7 @@ Transaction Contract: The Transaction Contract is deployed automatically by the 
    <br />
   
 ## 🔥 Our Published Paper Link:
-<a href="https://github.com/appuabhishek/counterfeit-medicine" target="_blank">COMING SOON</a>
+<a href="https://ieeexplore.ieee.org/document/10170622" target="_blank">https://ieeexplore.ieee.org/document/10170622</a>
 
 
 ## License
