@@ -22,7 +22,7 @@
 
 ## ⏯️ Explanation + Demo Video(click image)
 
-<a href="https://github.com/appuabhishek/counterfeit-medicine"><img src="images/explanation.jpeg"/></a>
+<a href="https://youtu.be/uSbdB0vDNeA"><img src="images/explanation.jpeg"/></a>
 
 
 <!-- ABOUT THE PROJECT -->
